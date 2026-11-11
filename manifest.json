@@ -1,0 +1,13 @@
+{
+  "name": "ADA Super League - Basketball",
+  "short_name": "ADA Super League",
+  "description": "Game basket arcade 5v5 untuk anak 8-15 tahun. Liga seru, upgrade pemain, dan free trial ADA Basketball Academy!",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0E1B33",
+  "theme_color": "#0E1B33",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

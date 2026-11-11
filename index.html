@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0E1B33" />
+  <meta name="description" content="ADA Super League - Basketball. Game basket arcade 5v5 untuk anak 8-15 tahun. Liga seru, upgrade pemain, dan free trial ADA Basketball Academy!" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>ADA Super League - Basketball</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- ============ ONBOARDING ============ -->
+    <section id="screen-onboard" class="screen active">
+      <div class="onboard-deco" aria-hidden="true">
+        <span class="deco-ball b1">🏀</span>
+        <span class="deco-ball b2">🏀</span>
+        <span class="deco-star s1">★</span>
+        <span class="deco-star s2">★</span>
+        <div class="deco-arc"></div>
+      </div>
+      <div class="onboard-scroll">
+        <div class="logo logo--hero">
+          <svg class="ball-icon" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="45" fill="#FF7A1A" stroke="#0E1B33" stroke-width="5"/>
+            <path d="M50 5v90M5 50h90" stroke="#0E1B33" stroke-width="4" fill="none"/>
+            <path d="M15 15c20 18 20 52 0 70M85 15c-20 18-20 52 0 70" stroke="#0E1B33" stroke-width="4" fill="none"/>
+            <path d="M50 5c-23 19-23 71 0 90M50 5c23 19 23 71 0 90" stroke="#0E1B33" stroke-width="3" fill="none" opacity=".55"/>
+          </svg>
+          <div class="logo-text">
+            <span class="logo-ada">ADA</span>
+            <span class="logo-academy">BASKETBALL ACADEMY</span>
+            <span class="logo-league">SUPER LEAGUE</span>
+          </div>
+        </div>
+        <p class="onboard-tag">Liga basket anak paling seru! 🏀<br><b>5 vs 5</b> • <b>2 menit</b> • <b>5 liga</b></p>
+
+        <form id="onboard-form" class="form-card" novalidate>
+          <h2 class="form-title">Daftar Dulu, Yuk!</h2>
+          <p class="form-sub">Isi data kamu biar progres tersimpan dan kamu masuk papan peringkat. 😎</p>
+          <label class="field">
+            <span>Nama Panggilan</span>
+            <input id="in-name" name="name" type="text" maxlength="18" placeholder="Contoh: Bima" autocomplete="nickname" required />
+          </label>
+          <div class="field-row">
+            <label class="field">
+              <span>Umur</span>
+              <select id="in-age" name="age" required>
+                <option value="">Pilih</option>
+                <option>8</option><option>9</option><option>10</option><option>11</option>
+                <option>12</option><option>13</option><option>14</option><option>15</option>
+              </select>
+            </label>
+            <label class="field field-grow">
+              <span>Sekolah</span>
+              <input id="in-school" name="school" type="text" maxlength="32" placeholder="Nama sekolah" autocomplete="organization" required />
+            </label>
+          </div>
+          <label class="field">
+            <span>No. WhatsApp Orang Tua</span>
+            <div class="input-prefix">
+              <span>+62</span>
+              <input id="in-wa" name="wa" type="tel" inputmode="numeric" maxlength="14" placeholder="812 3456 7890" required />
+            </div>
+          </label>
+          <p class="tiny">Dengan daftar, orang tua setuju dihubungi ADA Basketball Academy soal program &amp; free trial. Data aman, tidak dibagikan.</p>
+          <p id="form-error" class="form-error" role="alert"></p>
+          <button type="submit" class="btn btn-primary btn-block btn-big">MULAI MAIN 🏀</button>
+        </form>
+        <div class="onboard-badges">
+          <span>🏆 Naik 5 Liga</span>
+          <span>🎁 Free Trial</span>
+          <span>📱 Tanpa Download</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOME ============ -->
+    <section id="screen-home" class="screen">
+      <div class="home-hero">
+        <div class="hero-top">
+          <div class="logo logo--sm">
+            <svg class="ball-icon" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="45" fill="#FF7A1A" stroke="#0E1B33" stroke-width="5"/>
+              <path d="M50 5v90M5 50h90" stroke="#0E1B33" stroke-width="4" fill="none"/>
+              <path d="M15 15c20 18 20 52 0 70M85 15c-20 18-20 52 0 70" stroke="#0E1B33" stroke-width="4" fill="none"/>
+            </svg>
+            <div class="logo-text">
+              <span class="logo-ada">ADA</span>
+              <span class="logo-academy">BASKETBALL ACADEMY</span>
+            </div>
+          </div>
+          <button id="btn-sound" class="icon-btn" aria-label="Suara" title="Suara">🔊</button>
+        </div>
+        <div id="home-profile" class="profile-strip"></div>
+      </div>
+      <div class="scroll-body home-body">
+        <button id="daily-banner" class="daily-banner"></button>
+        <button id="btn-play" class="play-card"></button>
+        <div id="trial-banner" class="trial-banner hidden"></div>
+        <div id="home-league" class="card league-mini"></div>
+        <div id="home-squad" class="card home-squad"></div>
+        <div id="home-top" class="card home-top"></div>
+        <div class="home-tip" id="home-tip"></div>
+        <p class="tiny center">ADA Super League • dibuat untuk ADA Basketball Academy</p>
+      </div>
+    </section>
+
+    <!-- ============ LEAGUE ============ -->
+    <section id="screen-league" class="screen">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">JALAN MENUJU JUARA</p>
+          <h1 class="page-title">LIGA</h1>
+        </div>
+        <div class="coin-chip" id="league-coins"><span>🪙</span><b>0</b></div>
+      </header>
+      <div class="scroll-body">
+        <div id="league-hero" class="league-hero"></div>
+        <div id="league-progress" class="card"></div>
+        <h2 class="section-title">Lawan Kamu</h2>
+        <div id="league-opponents" class="opponent-list"></div>
+        <h2 class="section-title">Tangga Liga</h2>
+        <div id="league-ladder" class="ladder"></div>
+        <p class="tiny center">Menang = 3 poin. Kumpulkan <b>6 poin</b> (2 kemenangan) untuk naik liga. Kalah? Bisa coba lagi!</p>
+      </div>
+    </section>
+
+    <!-- ============ TEAM ============ -->
+    <section id="screen-team" class="screen">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SKUAD ADA SPARKS</p>
+          <h1 class="page-title">TIM</h1>
+        </div>
+        <div class="coin-chip" id="team-coins"><span>🪙</span><b>0</b></div>
+      </header>
+      <div class="scroll-body">
+        <div id="team-summary" class="team-summary"></div>
+        <div class="team-hint card">💡 Naikkan <b>Shoot</b> biar tembakan makin masuk. <b>Defense</b> buat gampang mencuri bola!</div>
+        <div id="team-list" class="team-list"></div>
+      </div>
+    </section>
+
+    <!-- ============ LEADERBOARD ============ -->
+    <section id="screen-leaderboard" class="screen">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SIAPA PALING JAGO?</p>
+          <h1 class="page-title">PERINGKAT</h1>
+        </div>
+        <div class="coin-chip" id="lb-coins"><span>🪙</span><b>0</b></div>
+      </header>
+      <div class="scroll-body">
+        <div class="seg" id="lb-tabs">
+          <button data-lb="global" class="active">Global</button>
+          <button data-lb="school">Sekolahku</button>
+          <button data-lb="age">Umur</button>
+        </div>
+        <div class="seg seg--sm hidden" id="lb-age">
+          <button data-age="8-11" class="active">8–11 tahun</button>
+          <button data-age="12-15">12–15 tahun</button>
+        </div>
+        <div id="lb-me" class="lb-me"></div>
+        <div id="lb-list" class="lb-list"></div>
+        <p class="tiny center">Peringkat dihitung dari XP. Main &amp; menang untuk naik!</p>
+      </div>
+    </section>
+
+    <!-- ============ SHOP ============ -->
+    <section id="screen-shop" class="screen">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">BELANJA PAKAI KOIN</p>
+          <h1 class="page-title">TOKO</h1>
+        </div>
+        <div class="coin-chip" id="shop-coins"><span>🪙</span><b>0</b></div>
+      </header>
+      <div class="scroll-body">
+        <div class="seg" id="shop-tabs">
+          <button data-shop="packs" class="active">Paket Kartu</button>
+          <button data-shop="jerseys">Jersey</button>
+          <button data-shop="courts">Lapangan</button>
+        </div>
+        <div id="shop-body"></div>
+      </div>
+    </section>
+
+    <!-- ============ GAME LAYER ============ -->
+    <div id="game-layer" class="hidden">
+      <canvas id="game-canvas"></canvas>
+      <div id="game-hud" class="hidden">
+        <div class="hud-scoreboard">
+          <div class="hud-team hud-you"><span class="hud-dot"></span><span id="hud-you">ADA SPARKS</span></div>
+          <div class="hud-nums"><span id="hud-score-you">0</span><span class="hud-colon">:</span><span id="hud-score-them">0</span></div>
+          <div class="hud-team hud-them"><span id="hud-them">ROCKETS</span><span class="hud-dot"></span></div>
+        </div>
+        <div class="hud-meta">
+          <div class="hud-pill hud-clock" id="hud-clock"><span class="hud-mini">WAKTU</span><span id="hud-time">2:00</span></div>
+          <div class="hud-pill hud-shot" id="hud-shot-wrap"><span class="hud-mini">SHOT</span><span id="hud-shot">14</span></div>
+          <button id="hud-pause" class="hud-pause" aria-label="Jeda">❚❚</button>
+        </div>
+      </div>
+      <div id="game-tip" class="game-tip hidden"></div>
+      <div id="controls" class="hidden">
+        <div id="joystick" class="joystick" aria-label="Joystick gerak">
+          <div class="joy-ring"></div>
+          <div class="joy-knob" id="joy-knob">✥</div>
+        </div>
+        <div class="actions">
+          <div class="action-row">
+            <button class="action-btn pass" id="btn-pass" type="button"><span class="a-icon">⇄</span><span class="a-label">PASS</span></button>
+            <button class="action-btn steal" id="btn-steal" type="button"><span class="a-icon">✋</span><span class="a-label" id="steal-label">STEAL</span></button>
+          </div>
+          <button class="action-btn shoot" id="btn-shoot" type="button"><span class="a-icon">🏀</span><span class="a-label">SHOOT</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ BOTTOM NAV ============ -->
+    <nav id="bottom-nav" class="bottom-nav hidden">
+      <button data-nav="home" class="active"><span>🏠</span><small>Beranda</small></button>
+      <button data-nav="league"><span>🏆</span><small>Liga</small></button>
+      <button data-nav="team"><span>👥</span><small>Tim</small></button>
+      <button data-nav="leaderboard"><span>📊</span><small>Peringkat</small></button>
+      <button data-nav="shop"><span>🛍️</span><small>Toko</small></button>
+    </nav>
+
+    <div id="modal-root"></div>
+    <div id="confetti" class="confetti" aria-hidden="true"></div>
+    <div id="toast" class="toast" role="status"></div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

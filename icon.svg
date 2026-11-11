@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="110" fill="#0E1B33"/>
+  <circle cx="256" cy="256" r="164" fill="#FF7A1A" stroke="#FFC93C" stroke-width="18"/>
+  <path d="M256 92v328M92 256h328" stroke="#0E1B33" stroke-width="20" fill="none"/>
+  <path d="M128 128c66 60 66 196 0 256M384 128c-66 60-66 196 0 256" stroke="#0E1B33" stroke-width="20" fill="none"/>
+  <path d="M256 92c-78 62-78 266 0 328M256 92c78 62 78 266 0 328" stroke="#0E1B33" stroke-width="14" fill="none" opacity=".55"/>
+  <text x="256" y="472" text-anchor="middle" font-family="Trebuchet MS, sans-serif" font-size="64" font-weight="900" fill="#FFC93C" letter-spacing="6">ADA</text>
+</svg>
